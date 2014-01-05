@@ -1,0 +1,33 @@
+Changes for the CPAN Testers Admin website
+==========================================
+
+0.05    2014-01-05
+        - prepped for official release.
+
+0.04    2013-12-04
+        - new templates.
+        - updated MANIFEST.
+        - new script to manage testers database.
+        - new script to manage cpanstats leaderboard.
+        - added GetUser function to reduce repeat lookups.
+        - added AssignTesters functionality to link addresses to profiles.
+        - upgraded to Labyrinth v5.18.
+        - upgraded to Labyrinth::Plugin::Core v5.13.
+        - upgraded to Labyrinth::Plugin::Articles::Diary v1.04.
+
+0.03    2013-10-07
+        - added Metabase and Labyrinth links.
+        - repositioned site boxes to avoid text and logo clashing.
+        - upgraded to Labyrinth v5.17.
+        - activated SetHits
+        - update to admin templates to make them consistent across sites.
+        - upgraded prototype.js to 1.7.1.
+
+0.02    2010-01-08
+        - added quote.html
+        - added Analysis to site family lists.
+        - updated report list pages to hide ID.
+        - updated report list pages to use tester profile, rather than email.
+
+0.01    2009-12-11
+        - First released version, based on Labyrinth v4.16
