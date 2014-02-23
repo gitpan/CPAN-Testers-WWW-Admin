@@ -21,11 +21,11 @@
 
 [% IF data %]
 <div class="box">
-[% IF thanks %]<p>[% thanks %]</p>[% END %]
-<p>Fields marked * are mandatory fields and must be completed.</p>
-<p><b>Please take the time to enter your details, as it helps others to identify you when you make any
+[% IF thanks %]<p>Thank you. An email has been sent to requested address. Please click the link contained within to confirm address.</p>[% END %]
+<p><strong>Please take the time to enter your details, as it helps others to identify you when you make any
 changes to the pages on the site. Note that only the details shown in the preview at the bottom of
-the page, will be visible on the wiki.</b></p>
+the page, will be visible on the wiki.</strong></p>
+<p>Fields marked * are mandatory fields and must be completed.</p>
 </div>
 
 [% IF errmess %]
@@ -68,16 +68,27 @@ the page, will be visible on the wiki.</b></p>
 <table width="100%">
 <tr><th width="150">Registered Emails</th>
     <th width="10"></th>
-    <td>[% IF data.confirmed %]
+    <td>
+    <p>Confirmed addresses in <strong>bold</strong>, unconfirmed addresses in <em>italics</em>.</p>
+    [% IF data.confirmed %]
 			[% FOREACH mail = data.confirmed %]
-        <input type="checkbox" name="LIST" value="[% mail.email %]" /> [% mail.email %]
+        <input type="checkbox" name="LIST" value="[% mail.email %]" />
+        [% IF mail.confirmed == 1 %]
+          <strong>[% mail.email %]</strong>
+        [% ELSE %]
+          <em>[% mail.email %]</em>
+        [% END %]
+
         [% IF realm == 'admin' && mail.confirmed == 0 %]
         <button type="submit" name="confirm" value="[% mail.email %]">Confirm</button>
         [% END %]
         <br />
       [% END %]
 			<input type="submit" name="submit" value="DELETE" />
-			[% ELSE %]n/a[% END %]</td>
+		[% ELSE %]
+      n/a
+    [% END %]
+    </td>
 </tr>
 </table>
 </div>

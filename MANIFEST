@@ -26,7 +26,6 @@ vhost/cgi-bin/config/requests/realm.ini
 vhost/cgi-bin/config/requests/tester.ini
 vhost/cgi-bin/config/requests/user.ini
 vhost/cgi-bin/config/settings.ini
-vhost/cgi-bin/db/cpanadmin-backup.sql
 vhost/cgi-bin/db/cpanadmin-schema.sql
 vhost/cgi-bin/db/testers-schema.sql
 vhost/cgi-bin/pages.cgi
@@ -49,11 +48,14 @@ vhost/cgi-bin/templates/content/moreinfo.html
 vhost/cgi-bin/templates/content/tester-admin.html
 vhost/cgi-bin/templates/content/tester-assign.html
 vhost/cgi-bin/templates/content/tester-browse.html
+vhost/cgi-bin/templates/content/tester-confirm.html
 vhost/cgi-bin/templates/content/tester-dist.html
 vhost/cgi-bin/templates/content/tester-find.html
 vhost/cgi-bin/templates/content/tester-list.html
+vhost/cgi-bin/templates/content/tester-locked.html
 vhost/cgi-bin/templates/content/tester-merge.html
 vhost/cgi-bin/templates/content/tester-reports.html
+vhost/cgi-bin/templates/content/tester-unconfirmed.html
 vhost/cgi-bin/templates/content/welcome-admin.html
 vhost/cgi-bin/templates/content/welcome-author.html
 vhost/cgi-bin/templates/content/welcome.html
@@ -61,10 +63,10 @@ vhost/cgi-bin/templates/content/welcome-tester.html
 vhost/cgi-bin/templates/hits/hits_admin.html
 vhost/cgi-bin/templates/hits/hits.html
 vhost/cgi-bin/templates/images/imagesblock.html
-vhost/cgi-bin/templates/mailer/confirm.eml
 vhost/cgi-bin/templates/mailer/forgot.eml
 vhost/cgi-bin/templates/mailer/marked.eml
-vhost/cgi-bin/templates/mailer/signup.eml
+vhost/cgi-bin/templates/mailer/tester-confirm.eml
+vhost/cgi-bin/templates/mailer/user-confirm.eml
 vhost/cgi-bin/templates/menus/menu_adminedit.html
 vhost/cgi-bin/templates/menus/menu_adminlist.html
 vhost/cgi-bin/templates/public/analytics.html
@@ -94,6 +96,7 @@ vhost/cgi-bin/templates/users/user-adminlist.html
 vhost/cgi-bin/templates/users/user-announce.html
 vhost/cgi-bin/templates/users/user-badreset.html
 vhost/cgi-bin/templates/users/user-chng.html
+vhost/cgi-bin/templates/users/user-confirm.html
 vhost/cgi-bin/templates/users/user-edit.html
 vhost/cgi-bin/templates/users/user-failure.html
 vhost/cgi-bin/templates/users/user-forgot.html
@@ -106,6 +109,7 @@ vhost/cgi-bin/templates/users/user-login-tester.html
 vhost/cgi-bin/templates/users/user-pass.html
 vhost/cgi-bin/templates/users/user-registered.html
 vhost/cgi-bin/templates/users/user-registration.html
+vhost/cgi-bin/templates/users/user-unconfirmed.html
 vhost/dumper.sh
 vhost/examples/cpantesters-email.png
 vhost/favicon-red.png

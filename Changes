@@ -1,6 +1,14 @@
 Changes for the CPAN Testers Admin website
 ==========================================
 
+0.06    2014-02-23
+        - extended allowed password characters.
+        - added missing mailer config.
+        - reworked account and email confirmation.
+        - upgrade to Labyrinth-5.20.
+        - upgrade to Labyrinth-Plugin-Core-5.14.
+        - switch tables to UTF-8.
+
 0.05    2014-01-05
         - prepped for official release.
 

@@ -2,7 +2,7 @@
 use strict;
 
 use vars qw($VERSION);
-$VERSION = '0.04';
+$VERSION = '0.06';
 
 #----------------------------------------------------------
 # Additional Modules
@@ -15,8 +15,8 @@ use Labyrinth;
 
 #----------------------------------------------------------
 
-my $lubi = Labyrinth->new();
-$lubi->run('/var/www/cpanadmin/cgi-bin/config/settings.ini');
+my $lab = Labyrinth->new();
+$lab->run('/var/www/cpanadmin/cgi-bin/config/settings.ini');
 
 1;
 
