@@ -23,6 +23,8 @@ WriteMakefile(
         'Data::Dumper'                          => 0,
         'Digest::SHA'                           => 0,
         'Email::Address'                        => 0,
+        'MIME::Base64'                          => 0,
+        'Net::SSLeay'                           => 0,
         'Sort::Versions'                        => 0,
         'Time::Local'                           => 0,
 

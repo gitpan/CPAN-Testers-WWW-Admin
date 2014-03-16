@@ -2,14 +2,14 @@
 use strict;
 
 use vars qw($VERSION);
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 #----------------------------------------------------------
 # Additional Modules
 
 use lib qw|. ./lib ./plugins|;
 
-use CGI::Carp			qw(fatalsToBrowser);
+#use CGI::Carp			qw(fatalsToBrowser);
 
 use Labyrinth;
 
