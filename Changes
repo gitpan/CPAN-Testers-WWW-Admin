@@ -1,6 +1,9 @@
 Changes for the CPAN Testers Admin website
 ==========================================
 
+0.08    2014-03-17
+        - added LICENSE file.
+
 0.07    2014-03-16
         - added missing pre-requisites.
 
