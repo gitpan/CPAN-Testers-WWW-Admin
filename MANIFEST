@@ -143,4 +143,6 @@ vhost/html/js/prototype.js
 vhost/html/js/sorttable.js
 vhost/toolkit/build-testers-db.pl
 vhost/toolkit/data/build-testers-db.ini
+vhost/toolkit/maintain-index.pl
+vhost/toolkit/maintain-index.sh
 vhost/toolkit/maintain-leaderboard.pl

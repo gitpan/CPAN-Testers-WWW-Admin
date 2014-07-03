@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 =head1 NAME
 
@@ -68,14 +68,16 @@ my %months = (
 my %fields = (
     email       => { type => 1, html => 1 },
     effect      => { type => 0, html => 1 },
-    userid      => { type => 0, html => 0 },
+    userid      => { type => 0, html => 1 },
     nickname    => { type => 0, html => 1 },
     realname    => { type => 1, html => 1 },
     aboutme     => { type => 0, html => 2 },
     search      => { type => 0, html => 0 },
     image       => { type => 0, html => 0 },
-    accessid    => { type => 0, html => 0 },
-    realmid     => { type => 0, html => 0 },
+    accessid    => { type => 0, html => 1 },
+    realmid     => { type => 0, html => 1 },
+    contact     => { type => 0, html => 1 },
+    testerid    => { type => 0, html => 1 },
 );
 
 my (@mandatory,@allfields);
@@ -546,7 +548,14 @@ sub Confirm {
     
     return SetCommand('tester-unconfirmed') unless(@confirm && $confirm[0]->{userid} == $userid);
 
+    # confirm this email
     $dbi->DoQuery('ConfirmedEmail',$userid,$confirm[0]->{email},$code);
+
+    # map emails to addresses
+    my @rows = $dbx->GetQuery('hash','FindAddresses',$confirm[0]->{email});
+    for(@rows) {
+        $dbi->DoQuery('MapAddresses',$userid,$_->{addressid});
+    }
 }
 
 sub Confirmed {
@@ -818,7 +827,15 @@ sub EditProfile {
 #    return  unless MasterCheck();
     return  unless AuthorCheck('GetUserByID','userid',ADMIN);
 
-    $tvars{data}{admin}    = Authorised(ADMIN);
+    $tvars{data}{admin}   = Authorised(ADMIN);
+}
+
+sub GetContact {
+    my ($row) = $dbi->GetQuery('hash','GetContact',$cgiparams{'userid'});
+    if($row && $row->{testerid}) {
+        $tvars{data}{contact}  = $row->{contact};
+        $tvars{data}{testerid} = $row->{testerid};
+    }
 }
 
 sub SaveProfile {
@@ -840,6 +857,13 @@ sub SaveProfile {
     );
 
     $dbi->DoQuery('SaveUser',@fields,$cgiparams{'userid'});
+}
+
+sub SetContact {
+    $dbi->DoQuery('SetContact',$cgiparams{'contact'},$cgiparams{'testerid'})
+        if($cgiparams{'contact'} && $cgiparams{'testerid'});
+    $dbi->DoQuery('UpdateProfile',$cgiparams{'realname'},$cgiparams{'nickname'},$cgiparams{'testerid'})
+        if($cgiparams{'realname'} && $cgiparams{'testerid'});
 }
 
 1;

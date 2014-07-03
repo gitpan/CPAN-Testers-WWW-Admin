@@ -1,6 +1,10 @@
 Changes for the CPAN Testers Admin website
 ==========================================
 
+0.09    2014-07-03
+        - added contact email for testers.
+        - added script to fix address index table.
+
 0.08    2014-03-17
         - added LICENSE file.
 

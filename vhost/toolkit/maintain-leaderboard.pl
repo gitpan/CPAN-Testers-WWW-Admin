@@ -2,17 +2,17 @@
 use strict;
 $|++;
 
-my $VERSION = '0.05';
+my $VERSION = '0.09';
 
 #----------------------------------------------------------------------------
 
 =head1 NAME
 
-build-testers-db.pl - script to create the tables in the testers database
+maintain-leaderboard.pl - script to maintain the cpanstats.leaderboard table.
 
 =head1 SYNOPSIS
 
-  perl build-testers-db.pl --config=files.ini
+  maintain-leaderboard.pl --config=files.ini
 
 =head1 DESCRIPTION
 
@@ -72,25 +72,25 @@ sub build {
 
     my $next = $options{source}->iterator('hash',"SELECT * FROM leaderboard WHERE testerid=0");
     while(my $row = $next->()) {
-        print "tester=$row->{tester}\n";
+        #print "tester=$row->{tester}\n";
         if( my $profile = $address{names}{$row->{tester}} ) {
-            print "1.profile=".join(',',@$profile)."\n";
+            #print "1.profile=".join(',',@$profile)."\n";
             next    if($address{names}{$row->{tester}}->[2] && $address{names}{$row->{tester}}->[2] eq $row->{tester});
             $address{names}{$row->{tester}}->[2] = $row->{tester};
             $options{source}->do_query('UPDATE leaderboard SET addressid=?,testerid=? WHERE tester=?',@$profile);
-            print "- updated\n";
+            #print "- updated\n";
         } elsif( my $profile = $address{email}{$row->{tester}} ) {
-            print "2.profile=".join(',',@$profile)."\n";
+            #print "2.profile=".join(',',@$profile)."\n";
             next    if($address{email}{$row->{tester}}->[2] && $address{email}{$row->{tester}}->[2] eq $row->{tester});
             $address{email}{$row->{tester}}->[2] = $row->{tester};
             $options{source}->do_query('UPDATE leaderboard SET addressid=?,testerid=? WHERE tester=?',@$profile);
-            print "- updated\n";
+            #print "- updated\n";
         } elsif( my $profile = $address{address}{$row->{tester}} ) {
-            print "3.profile=".join(',',@$profile)."\n";
+            #print "3.profile=".join(',',@$profile)."\n";
             next    if($address{address}{$row->{tester}}->[2] && $address{address}{$row->{tester}}->[2] eq $row->{tester});
             $address{address}{$row->{tester}}->[2] = $row->{tester};
             $options{source}->do_query('UPDATE leaderboard SET addressid=?,testerid=? WHERE tester=?',@$profile);
-            print "- updated\n";
+            #print "- updated\n";
         }
     }
 }
