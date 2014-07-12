@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 =head1 NAME
 
@@ -552,6 +552,8 @@ sub Confirm {
     $dbi->DoQuery('ConfirmedEmail',$userid,$confirm[0]->{email},$code);
 
     # map emails to addresses
+    my $cpan = Labyrinth::Plugin::CPAN->new();
+    my $dbx  = $cpan->DBX('cpanstats');
     my @rows = $dbx->GetQuery('hash','FindAddresses',$confirm[0]->{email});
     for(@rows) {
         $dbi->DoQuery('MapAddresses',$userid,$_->{addressid});
@@ -796,6 +798,14 @@ Edit tester profile
 =item SaveProfile
 
 Save tester profile
+
+=item GetContact
+
+Retrieve the current contact address for the current user.
+
+=item SetContact
+
+Save contact address for te current user.
 
 =back
 

@@ -2,7 +2,6 @@ Changes
 lib/CPAN/Testers/WWW/Admin.pm
 lib/Labyrinth/Plugin/CPAN/Admin.pm
 lib/Labyrinth/Plugin/CPAN/Author.pm
-lib/Labyrinth/Plugin/CPAN.pm
 lib/Labyrinth/Plugin/CPAN/Tester.pm
 LICENSE
 Makefile.PL

@@ -1,6 +1,14 @@
 Changes for the CPAN Testers Admin website
 ==========================================
 
+0.10    2014-07-12
+        - typo in mail templates (thanks to chorny).
+        - extract Labyrinth::Plugin::CPAN.
+        - upgrade to Labyrinth-5.23.
+        - upgrade to Labyrinth-Plugin-Core-5.15.
+        - upgrade to Labyrinth-Plugin-CPAN-3.50.
+        - save realm when saving User details.
+
 0.09    2014-07-03
         - added contact email for testers.
         - added script to fix address index table.
