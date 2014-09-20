@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                CPAN-Testers-WWW-Admin
-version:             0.10
+version:             0.11
 abstract:            The CPAN Testers Reports Administration website
 author:
   - Barbie <barbie@cpan.org>
@@ -35,16 +35,16 @@ build_requires:
 provides:
   CPAN::Testers::WWW::Admin:
     file:     lib/CPAN/Testers/WWW/Admin.pm
-    version:  0.10
+    version:  0.11
   Labyrinth::Plugin::CPAN::Admin:
     file:     lib/Labyrinth/Plugin/CPAN/Admin.pm
-    version:  0.10
+    version:  0.11
   Labyrinth::Plugin::CPAN::Author:
     file:     lib/Labyrinth/Plugin/CPAN/Author.pm
-    version:  0.10
+    version:  0.11
   Labyrinth::Plugin::CPAN::Tester:
     file:     lib/Labyrinth/Plugin/CPAN/Tester.pm
-    version:  0.10
+    version:  0.11
 
 no_index:
   directory:
@@ -53,12 +53,12 @@ no_index:
     - vhost
 
 resources:
-  license:    http://www.perlfoundation.org/artistic_license_2_0
   homepage:   https://admin.cpantesters.org
+  license:    http://www.perlfoundation.org/artistic_license_2_0
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=CPAN-Testers-WWW-Admin
   repository: http://github.com/barbie/cpan-testers-www-admin
 
 meta-spec:
    version:   1.4
    url:       http://module-build.sourceforge.net/META-spec-v1.4.html
-generated_by: Hand 1.0
+generated_by: The Hand of Barbie 1.0
