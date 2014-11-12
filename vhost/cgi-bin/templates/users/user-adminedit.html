@@ -68,7 +68,7 @@
 <tr><th width="150">Registered Emails</th>
     <td width="10"></td>
     <td>[% IF data.confirmed %]
-			[% FOREACH mail = data.confirmed %]<input type="checkbox" name="LIST" value="[% mail.email %]" /> [% mail.email %]<br />[% END %]
+			[% FOREACH mail = data.confirmed %]<input type="checkbox" name="MAILS" value="[% mail.email %]" /> [% mail.email %]<br />[% END %]
 			<input type="submit" name="submit" value="DELETE" />
 			[% ELSE %]n/a[% END %]</td>
 </tr>

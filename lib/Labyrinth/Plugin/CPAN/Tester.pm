@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 =head1 NAME
 
@@ -66,18 +66,9 @@ my %months = (
 # html: 0 = none, 1 = text, 2 = textarea
 
 my %fields = (
-    email       => { type => 1, html => 1 },
-    effect      => { type => 0, html => 1 },
-    userid      => { type => 0, html => 1 },
     nickname    => { type => 0, html => 1 },
     realname    => { type => 1, html => 1 },
-    aboutme     => { type => 0, html => 2 },
-    search      => { type => 0, html => 0 },
-    image       => { type => 0, html => 0 },
-    accessid    => { type => 0, html => 1 },
-    realmid     => { type => 0, html => 1 },
-    contact     => { type => 0, html => 1 },
-    testerid    => { type => 0, html => 1 },
+    email       => { type => 1, html => 1 },
 );
 
 my (@mandatory,@allfields);
@@ -213,6 +204,7 @@ sub Reports  {
 
 sub Find  {
     return  unless RealmCheck('tester','admin');
+    $tvars{searched} = 1;
 
     my $cpan = Labyrinth::Plugin::CPAN->new();
     my $dbx = $cpan->DBX('cpanstats');
@@ -220,8 +212,6 @@ sub Find  {
     if(@rows) {
         $tvars{data}{reports} = \@rows;
         SetCommand('tester-report');
-    } else {
-        $tvars{errmess} = 'Sorry, report not found with that GUID. Please try again.';
     }
 }
 
@@ -534,7 +524,7 @@ sub Remove {
         return;
     }
 
-    my @mails = CGIArray('LIST');
+    my @mails = CGIArray('MAILS');
     return  unless @mails;
 
     $dbi->DoQuery('RemoveEmail',{mails => "'" . join("','",@mails) . "'"},$userid);

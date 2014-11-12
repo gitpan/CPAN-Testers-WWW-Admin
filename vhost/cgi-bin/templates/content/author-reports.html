@@ -1,9 +1,17 @@
 [%
 
-    title = 'Browse Reports by Date' ;
     crumb2_name = 'Author' ;
     crumb2_href = '/' ;
-    crumb1_name = 'Browse by Date' ;
+
+    IF searched ; THEN ; 
+      title = 'Find Reports by GUID' ;
+      crumb1_name = 'Find by GUID' ;
+      subtitle = 'Find by GUID' ;
+    ELSE ;
+      title = 'Browse Reports by Date' ;
+      crumb1_name = 'Browse by Date' ;
+      subtitle = 'Reports for ' _ data.date ;
+    END ;
 
     box_prefs = 1 ;
     javascript = 1 ;
@@ -15,7 +23,7 @@ report ID to view more information about that report.</p>
 
 [% INCLUDE "content/moreinfo.html" %]
 
-<h2>Reports for [% data.date %]</h2>
+<h2>[% subtitle %]</h2>
 
 [% IF data.reports %]
 <form id="reports-form" name="reports" action="[% cgipath %]/pages.cgi" method="post" onsubmit="return MarkReports();">

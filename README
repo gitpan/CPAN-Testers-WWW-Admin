@@ -6,7 +6,7 @@ Reports Administration website.
 
 The CPAN Testers Reports Administration website is built on top of the 
 Labyrinth Website Management System. As such, the code to drive the website 
-is conatined within the Labyrinth and associated plugin prerequisites. In 
+is contained within the Labyrinth and associated plugin prerequisites. In 
 order to define the website in terms of functionality, layout and style, the 
 files within the './vhost' directory of this distribution should be installed 
 into your web server's virtual host directory.
@@ -67,6 +67,17 @@ send an email to admin@cpantesters.org with details.
 Our full list of current sponsors can be found at our I <3 CPAN Testers site.
 
 http://iheart.cpantesters.org
+
+SEE ALSO
+
+* http://labyrinth.missbarbell.co.uk - Labyrinth
+
+* http://admin.cpantesters.org - CPAN Testers Reports Administration website
+
+AUTHOR
+
+Barbie, <barbie@missbarbell.co.uk> for
+Miss Barbell Productions, L<http://www.missbarbell.co.uk/>
 
 COPYRIGHT AND LICENCE
 

@@ -1,6 +1,6 @@
 {
     "name": "CPAN-Testers-WWW-Admin",
-    "version": "0.11",
+    "version": "0.12",
     "abstract": "The CPAN Testers Reports Administration website",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -24,9 +24,9 @@
         "runtime" : {
             "requires" : {
                 "perl": "5.006",
-                "Labyrinth": "5.23",
+                "Labyrinth": "5.27",
                 "Labyrinth::DIUtils::ImageMagick": "5.04",
-                "Labyrinth::Plugin::Core": "5.15",
+                "Labyrinth::Plugin::Core": "5.18",
                 "Labyrinth::Plugin::CPAN": "3.50",
                 "Class::Accessor::Fast": "0",
                 "Data::Dumper": "0",
@@ -55,19 +55,19 @@
     "provides": {
         "CPAN::Testers::WWW::Admin": {
             "file": "lib/CPAN/Testers/WWW/Admin.pm",
-            "version": "0.11"
+            "version": "0.12"
         },
         "Labyrinth::Plugin::CPAN::Admin": {
             "file": "lib/Labyrinth/Plugin/CPAN/Admin.pm",
-            "version": "0.11"
+            "version": "0.12"
         },
         "Labyrinth::Plugin::CPAN::Author": {
             "file": "lib/Labyrinth/Plugin/CPAN/Author.pm",
-            "version": "0.11"
+            "version": "0.12"
         },
         "Labyrinth::Plugin::CPAN::Tester": {
             "file": "lib/Labyrinth/Plugin/CPAN/Tester.pm",
-            "version": "0.11"
+            "version": "0.12"
         }
     },
     "no_index": {

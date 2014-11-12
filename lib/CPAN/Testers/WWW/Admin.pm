@@ -3,7 +3,7 @@ package CPAN::Testers::WWW::Admin;
 use warnings;
 use strict;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 1;
 
@@ -50,7 +50,7 @@ cover the costs of servers and services.
 If you would like to donate to the CPAN Testers Fund, please follow the link
 below to the Enlightened Perl Organisation's donation site.
 
-F<https://members.enlightenedperl.org/drupal/donate-cpan-testers>
+L<https://members.enlightenedperl.org/drupal/donate-cpan-testers>
 
 If your company would like to support us, you can donate financially via the
 fund link above, or if you have servers or services that we might use, please
@@ -58,7 +58,7 @@ send an email to admin@cpantesters.org with details.
 
 Our full list of current sponsors can be found at our I <3 CPAN Testers site.
 
-F<http://iheart.cpantesters.org>
+L<http://iheart.cpantesters.org>
 
 =head1 AUTHOR
 

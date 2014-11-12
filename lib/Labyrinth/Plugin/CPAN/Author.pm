@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 =head1 NAME
 
@@ -133,14 +133,14 @@ List those reports the author has marked for removal.
 sub Login {
     use MIME::Base64;
     use Net::SSLeay qw(get_https make_headers);
-#    my ($page, $result, %headers)
-    my (undef, $result)
-         = get_https('pause.perl.org', 443, '/pause/authenquery',
-              make_headers(Authorization =>
-                           'Basic ' . MIME::Base64::encode("$cgiparams{pause}:$cgiparams{eject}",''))
-              );
 
-    if($result =~ /200 OK/) {
+    use LWP::UserAgent;
+    my $result = LWP::UserAgent->new->get("https://pause.perl.org/pause/authenquery",
+            Authorization =>
+                'Basic ' . MIME::Base64::encode("$cgiparams{pause}:$cgiparams{eject}",'')
+    );
+
+    if($result->code == 200) {
         my @rows = $dbi->GetQuery('hash','CheckUser','PAUSE','PAUSE');
 
         # add entry to session table
@@ -370,12 +370,15 @@ sub Tester  {
 
 sub Find  {
     return  unless RealmCheck('pause','admin');
+    $tvars{searched} = 1;
 
     my $cpan = Labyrinth::Plugin::CPAN->new();
-    my $dbx = $cpan->DBX('articles');
-    my @rows = $dbx->GetQuery('hash','FindReport',$cgiparams{nntp});
-    if(@rows)   { $tvars{report} = $rows[0]->{article}; }
-    else        { $tvars{report} = 'No report found for that ID'; }
+    my $dbx = $cpan->DBX('cpanstats');
+    my @rows = $dbx->GetQuery('hash','FindReport',$cgiparams{guid});
+    if(@rows) {
+        $tvars{data}{reports} = \@rows;
+        SetCommand('author-report');
+    }
 }
 
 sub Mark  {

@@ -9,9 +9,9 @@
 perform.</p>
 
 [% IF errmess == 1 %]
-<p>I'm sorry but that login was not recognised. Please try again, ensuring you 
+<p class="alert">I'm sorry but that login was not recognised. Please try again, ensuring you 
 enter the correct email address and password. Thank you.
-[% ELSE %]<p>[% errmess %]</p>
+[% ELSE %]<p class="alert">[% errmess %]</p>
 [% END %]
 
 <h2>Tester Login</h2>

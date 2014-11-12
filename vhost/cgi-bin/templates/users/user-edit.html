@@ -80,7 +80,7 @@ the page, will be visible on the wiki.</strong></p>
     <p>Confirmed addresses in <strong>bold</strong>, unconfirmed addresses in <em>italics</em>.</p>
     [% IF data.confirmed %]
 			[% FOREACH mail = data.confirmed %]
-        <input type="checkbox" name="LIST" value="[% mail.email %]" />
+        <input type="checkbox" name="MAILS" value="[% mail.email %]" />
         [% IF mail.confirmed == 1 %]
           <strong>[% mail.email %]</strong>
         [% ELSE %]
