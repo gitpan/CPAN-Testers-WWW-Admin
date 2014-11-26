@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.12';
+$VERSION = '0.13';
 
 =head1 NAME
 
@@ -29,6 +29,7 @@ use Labyrinth::Variables;
 
 use Labyrinth::Plugin::CPAN;
 
+use Data::Dumper;
 use Digest::SHA qw(sha1_hex);
 use Time::Local;
 
@@ -148,7 +149,6 @@ sub Browse  {
         $dates{$y}{months}->{$m}{days}->{$d}{day} = int($d);
     }
 
-    use Data::Dumper;
     LogDebug(Dumper(\%dates));
 
     my @y;

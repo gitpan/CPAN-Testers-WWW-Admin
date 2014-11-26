@@ -1,6 +1,11 @@
 Changes for the CPAN Testers Admin website
 ==========================================
 
+0.13    2014-11-26
+        - phrasebook updates.
+        - fixed missing use module in Author.pm.
+        - fixed prerequisites and module loading to be consistent.
+
 0.12    2014-11-12
         - documentation updates.
         - upgrade to Labyrinth-5.27.

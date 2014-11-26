@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                CPAN-Testers-WWW-Admin
-version:             0.12
+version:             0.13
 abstract:            The CPAN Testers Reports Administration website
 author:
   - Barbie <barbie@cpan.org>
@@ -18,7 +18,7 @@ requires:
   Class::Accessor::Fast:              0
   Data::Dumper:                       0
   Digest::SHA:                        0
-  Email::Address:                     0
+  LWP::UserAgent:                     0
   MIME::Base64:                       0
   Net::SSLeay:                        0
   Sort::Versions:                     0
@@ -35,16 +35,16 @@ build_requires:
 provides:
   CPAN::Testers::WWW::Admin:
     file:     lib/CPAN/Testers/WWW/Admin.pm
-    version:  0.12
+    version:  0.13
   Labyrinth::Plugin::CPAN::Admin:
     file:     lib/Labyrinth/Plugin/CPAN/Admin.pm
-    version:  0.12
+    version:  0.13
   Labyrinth::Plugin::CPAN::Author:
     file:     lib/Labyrinth/Plugin/CPAN/Author.pm
-    version:  0.12
+    version:  0.13
   Labyrinth::Plugin::CPAN::Tester:
     file:     lib/Labyrinth/Plugin/CPAN/Tester.pm
-    version:  0.12
+    version:  0.13
 
 no_index:
   directory:

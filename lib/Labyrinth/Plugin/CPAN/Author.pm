@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use vars qw($VERSION);
-$VERSION = '0.12';
+$VERSION = '0.13';
 
 =head1 NAME
 
@@ -25,7 +25,12 @@ use Labyrinth::Session;
 use Labyrinth::Support;
 use Labyrinth::Variables;
 
+use Labyrinth::Plugin::CPAN;
+
 use Data::Dumper;
+use LWP::UserAgent;
+use MIME::Base64;
+use Net::SSLeay qw(get_https make_headers);
 use Sort::Versions;
 use Time::Local;
 
@@ -131,10 +136,6 @@ List those reports the author has marked for removal.
 =cut
 
 sub Login {
-    use MIME::Base64;
-    use Net::SSLeay qw(get_https make_headers);
-
-    use LWP::UserAgent;
     my $result = LWP::UserAgent->new->get("https://pause.perl.org/pause/authenquery",
             Authorization =>
                 'Basic ' . MIME::Base64::encode("$cgiparams{pause}:$cgiparams{eject}",'')
